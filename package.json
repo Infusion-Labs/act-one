@@ -37,5 +37,8 @@
     "url": "git://github.com/keith/act-one.git"
   },
   "author": "keith",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "sails-deploy-azure": "^0.2.10"
+  }
 }
