@@ -44,7 +44,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/boxoffice': { view: 'index' },
-  '/boxoffice/purchase': { view: 'purchase' }
+  '/tickets': { view: 'index' },
+  '/tickets/purchase': { view: 'tickets/purchase' }
 
 };

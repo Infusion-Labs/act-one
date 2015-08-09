@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('box-office-app')
+    .module('act-one-app')
     .directive('convertToNumber', convertToNumber);
 
     function convertToNumber () {

@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('box-office-app', [
+    angular.module('act-one-app', [
         'ngResource'
     ]);
 
