@@ -1,21 +1,70 @@
-extends layout
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+    title= title
+    link(rel='stylesheet', href='/styles/style.css')
 
-block content  
-  
-  div.row
-    div.col-xs-12.pad-top-lg
-      p.
-        Saturday, November 7th, 6:00PM - 11:00PM
+    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+    // SCRIPTS
+    script(src="/js/dependencies/sails.io.js")
+    script(src="/js/dependencies/jquery.js")
+    script(src="/js/dependencies/bootstrap.js")
+    script(src="/js/dependencies/angular.js")
+    script(src="/js/dependencies/angular-resource.js")
+    script(src="/js/act-one/app.js")
+    script(src="/js/act-one/common/convert-to-number-directive.js")
+    script(src="/js/act-one/tickets/purchase-ctrl.js")
+    // SCRIPTS END
 
-  div.row
-    div.col-xs-12.pad-top-lg
-      a.center-block.btn.btn-lg.btn-primary(href='/tickets/purchase').
-        Purchase Tickets!
+  body
+    
+    header  
+      div.container-fluid
+        div.row
+          div.col-xs-6
+            div.row
+              div.col-xs-12.col-sm-6
+                img(src='/images/cfac-logo.png', alt='Couture for a Cause')
+              div.col-xs-12.col-sm-6
+                p.margin-top-lg Raleigh Convention Center
+                p 7 November 2015 
+                p 6:00PM - 11:00PM
 
-  div.row
-    div.col-xs-12.pad-top-lg
-      p.
-        Couture for a Cause is an annual fashion show fundraiser benefiting 
-        Activate Good! At Couture for a Cause, we pair local designers with 
-        Activate Good’s nonprofit partners to create looks that embody the 
-        missions of those organizations.
+          div.col-xs-6
+            div.row
+              div.col-xs-12
+                a.pull-right.btn.btn-lg.btn-primary(href='/tickets/purchase').
+                  Purchase Tickets!
+      nav
+        div.col-xs-6.col-xs-offset-6.col-sm-12.col-sm-offset-0
+          ul.nav.nav-pills.pull-right
+            li.pull-right
+              a(href='/auction') Auction
+            li.pull-right
+              a(href='/tickets') Tickets
+            li.pull-right
+              a(href='/about') About
+            li.pull-right 
+              a(href='/') Home
+              
+    section#introduction
+      div.container-fluid
+        div.row
+          div.col-xs-12.pad-top-lg
+            p.
+              Couture for a Cause is an annual fashion show fundraiser benefiting 
+              Activate Good! At Couture for a Cause, we pair local designers with 
+              Activate Good’s nonprofit partners to create looks that embody the 
+              missions of those organizations.
+
+    footer
+      div.container-fluid
+        div.row
+          div.col-xs-12
+            p.text-center.pad-top-lg.pad-bottom-lg.
+              Activate Good | Couture for a Cause
+            
