@@ -43,7 +43,7 @@
           controller: 'TicketsCtrl'
         }).
         otherwise({
-          redirectTo: '/'
+          templateUrl: '/js/act-one/home/404.html'
         });
     }
 

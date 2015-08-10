@@ -44,7 +44,4 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/tickets': { view: 'index' },
-  '/tickets/purchase': { view: 'tickets/purchase' }
-
 };
