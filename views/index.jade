@@ -1,10 +1,11 @@
 doctype html
-html
+html(data-ng-app='act-one-app')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
-    
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    base(href='/')
+
     title= title
     link(rel='stylesheet', href='/styles/style.css')
 
@@ -15,9 +16,18 @@ html
     script(src="/js/dependencies/bootstrap.js")
     script(src="/js/dependencies/angular.js")
     script(src="/js/dependencies/angular-resource.js")
-    script(src="/js/act-one/app.js")
-    script(src="/js/act-one/common/convert-to-number-directive.js")
-    script(src="/js/act-one/tickets/purchase-ctrl.js")
+    script(src="/js/dependencies/angular-route.js")
+    script(src="/js/act-one/app-module.js")
+    script(src="/js/act-one/about/about-ctrl.js")
+    script(src="/js/act-one/app-config.js")
+    script(src="/js/act-one/auction/auction-ctrl.js")
+    script(src="/js/act-one/check-in/check-in-ctrl.js")
+    script(src="/js/act-one/check-out/check-out-ctrl.js")
+    script(src="/js/act-one/common/auth/auth-interceptor.js")
+    script(src="/js/act-one/common/util/convert-to-number-directive.js")
+    script(src="/js/act-one/fundraiser/designers-ctrl.js")
+    script(src="/js/act-one/home/home-ctrl.js")
+    script(src="/js/act-one/tickets/tickets-ctrl.js")
     // SCRIPTS END
 
   body
@@ -37,29 +47,24 @@ html
           div.col-xs-6
             div.row
               div.col-xs-12
-                a.pull-right.btn.btn-lg.btn-primary(href='/tickets/purchase').
+                a.pull-right.btn.btn-lg.btn-primary(href='/tickets').
                   Purchase Tickets!
       nav
         div.col-xs-6.col-xs-offset-6.col-sm-12.col-sm-offset-0
           ul.nav.nav-pills.pull-right
-            li.pull-right
+            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'auction'}")
               a(href='/auction') Auction
-            li.pull-right
+            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'tickets'}")
               a(href='/tickets') Tickets
-            li.pull-right
+            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'about'}")
               a(href='/about') About
-            li.pull-right 
+            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'home'}")
               a(href='/') Home
               
-    section#introduction
+    section#view-section
       div.container-fluid
         div.row
-          div.col-xs-12.pad-top-lg
-            p.
-              Couture for a Cause is an annual fashion show fundraiser benefiting 
-              Activate Good! At Couture for a Cause, we pair local designers with 
-              Activate Good’s nonprofit partners to create looks that embody the 
-              missions of those organizations.
+          div.col-xs-12(data-ng-view)
 
     footer
       div.container-fluid
