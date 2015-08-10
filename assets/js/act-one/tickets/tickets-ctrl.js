@@ -4,11 +4,11 @@
 
   angular
     .module('act-one-app')
-    .controller('PurchaseCtrl', PurchaseCtrl);
+    .controller('TicketsCtrl', TicketsCtrl);
 
-    PurchaseCtrl.$inject = ['$scope'];
+    TicketsCtrl.$inject = ['$scope'];
 
-    function PurchaseCtrl ($scope) {
+    function TicketsCtrl ($scope) {
 
       $scope.guestButtonText = 'Add a Guest';
       $scope.attendee = {

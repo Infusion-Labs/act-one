@@ -24,23 +24,23 @@
       $routeProvider.
         when('/', {
           templateUrl: '/js/act-one/home/home.html',
-          controller: 'HomeCtrl',
-          activeNav: 'home'
+          controller: 'HomeCtrl'
         }).
         when('/about', {
           templateUrl: '/js/act-one/about/about.html',
-          controller: 'AboutCtrl',
-          activeNav: 'about'
+          controller: 'AboutCtrl'
         }).
         when('/auction', {
           templateUrl: '/js/act-one/auction/auction.html',
-          controller: 'AuctionCtrl',
-          activeNav: 'auction'
+          controller: 'AuctionCtrl'
+        }).
+        when('/designers', {
+          templateUrl: '/js/act-one/fundraiser/designers.html',
+          controller: 'DesignersCtrl'
         }).
         when('/tickets', {
           templateUrl: '/js/act-one/tickets/tickets.html',
-          controller: 'TicketsCtrl',
-          activeNav: 'tickets'
+          controller: 'TicketsCtrl'
         }).
         otherwise({
           redirectTo: '/'

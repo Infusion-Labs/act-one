@@ -25,6 +25,7 @@ html(data-ng-app='act-one-app')
     script(src="/js/act-one/check-out/check-out-ctrl.js")
     script(src="/js/act-one/common/auth/auth-interceptor.js")
     script(src="/js/act-one/common/util/convert-to-number-directive.js")
+    script(src="/js/act-one/common/util/nav-pills-directive.js")
     script(src="/js/act-one/fundraiser/designers-ctrl.js")
     script(src="/js/act-one/home/home-ctrl.js")
     script(src="/js/act-one/tickets/tickets-ctrl.js")
@@ -51,14 +52,16 @@ html(data-ng-app='act-one-app')
                   Purchase Tickets!
       nav
         div.col-xs-6.col-xs-offset-6.col-sm-12.col-sm-offset-0
-          ul.nav.nav-pills.pull-right
-            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'auction'}")
+          ul.pull-right(data-nav-pills)
+            li.pull-right
+              a(href='/designers') Designers
+            li.pull-right
               a(href='/auction') Auction
-            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'tickets'}")
+            li.pull-right
               a(href='/tickets') Tickets
-            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'about'}")
+            li.pull-right
               a(href='/about') About
-            li.pull-right(data-ng-class="{active: $route.current.activeNav == 'home'}")
+            li.pull-right
               a(href='/') Home
               
     section#view-section
