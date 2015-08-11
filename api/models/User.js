@@ -1,13 +1,15 @@
 /**
-* User.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * User
+ *
+ * @module      :: Model
+ * @description :: This is the base user model
+ * @docs        :: http://waterlock.ninja/documentation
+ */
 
 module.exports = {
 
-  attributes: {
+  attributes: require('waterlock').models.user.attributes({
+
     firstName: 'string',
     lastName: 'string',
     email: {
@@ -42,6 +44,9 @@ module.exports = {
       collection: 'role',
       via: 'users'
     }
-  }
 
+  }),
+
+  beforeCreate: require('waterlock').models.user.beforeCreate,
+  beforeUpdate: require('waterlock').models.user.beforeUpdate
 };
