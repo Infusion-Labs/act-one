@@ -38,6 +38,10 @@
           templateUrl: '/js/act-one/fundraiser/designers.html',
           controller: 'DesignersCtrl'
         }).
+        when('/login', {
+          templateUrl: '/js/act-one/home/login.html',
+          controller: 'LoginCtrl'
+        }).
         when('/tickets', {
           templateUrl: '/js/act-one/tickets/tickets.html',
           controller: 'TicketsCtrl'

@@ -28,49 +28,51 @@ html(data-ng-app='act-one-app')
     script(src="/js/act-one/common/util/nav-pills-directive.js")
     script(src="/js/act-one/fundraiser/designers-ctrl.js")
     script(src="/js/act-one/home/home-ctrl.js")
+    script(src="/js/act-one/home/login-ctrl.js")
     script(src="/js/act-one/tickets/tickets-ctrl.js")
     // SCRIPTS END
 
   body
     
     header  
-      div.container-fluid
+      div.container
         div.row
-          div.col-xs-6
+          div.col-xs-12.col-sm-6
             div.row
               div.col-xs-12.col-sm-6
-                img(src='/images/cfac-logo.png', alt='Couture for a Cause')
+                img.img-responsive(src='/images/cfac-logo.png', alt='Couture for a Cause')
               div.col-xs-12.col-sm-6
                 h4.margin-top-lg Raleigh Convention Center
                 h4 7 November 2015 
                 h4 6:00PM - 11:00PM
 
-          div.col-xs-6
+          div.col-xs-12.col-sm-6          
             div.row
               div.col-xs-12
-                a.pull-right.btn.btn-lg.btn-primary(href='/tickets').
+                a.btn.btn-lg.btn-primary(href='/tickets').
                   Purchase Tickets!
-      nav
-        div.col-xs-6.col-xs-offset-6.col-sm-12.col-sm-offset-0
-          ul.pull-right(data-nav-pills)
-            li.pull-right
-              a(href='/designers') Designers
-            li.pull-right
-              a(href='/auction') Auction
-            li.pull-right
-              a(href='/tickets') Tickets
-            li.pull-right
-              a(href='/about') About
-            li.pull-right
-              a(href='/') Home
-              
+                  
+        div.row
+          div.col-xs-12
+            ul.pull-right(data-nav-pills)
+              li
+                a(href='/') Home
+              li
+                a(href='/about') About              
+              li
+                a(href='/tickets') Tickets
+              li
+                a(href='/auction') Auction
+              li
+                a(href='/designers') Designers
+
     section#view-section
-      div.container-fluid
+      div.container
         div.row
           div.col-xs-12(data-ng-view)
 
     footer
-      div.container-fluid
+      div.container
         div.row
           div.col-xs-12
             p.text-center.pad-top-lg.pad-bottom-lg.

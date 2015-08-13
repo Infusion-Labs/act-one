@@ -1,26 +1,41 @@
 @import "/bower_components/bootstrap/less/bootstrap.less";
 @import "variables.less";
 
+@media (max-width: @screen-xs) {
+
+}
+
+@media (min-width: @screen-xs) {
+  header a.btn {
+    .pull-right;
+  }
+}
+
+@media (max-width: @screen-md) {
+  header a.btn {
+    .center-block;
+    .margin-top-lg;
+  }
+  header ul.nav-pills {
+    .nav-justified;
+    .margin-top-lg;
+  }
+}
+
 header {
   background-color: #000;
+  background-image: url(../images/cfac-header-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
   color: #ffffff;
-  padding: 25px;
-  position: relative;
-
-  img {
-    width: 100%;
-  }
+  padding: 20px;
 
   a {
     color: #ffffff;
   }
-
-  nav {
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
-  }
 }
+
 
 #view-section {
   padding: 20px;
@@ -59,4 +74,39 @@ p {
 
 .btn-inverse {
   .button-variant(@btn-inverse-color; @btn-inverse-bg; @btn-inverse-border);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
