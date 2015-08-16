@@ -3,14 +3,15 @@
     'use strict';
 
     angular
-        .module('act-one-app')
-        //.config(interceptors)
-        .config(locations)
-        .config(routes);
+      .module('act-one-app')
+      //.config(interceptors)
+      .config(locations)
+      //.run(firewall)
+    ;
 
     interceptors.$inject = ['$httpProvider'];
-    routes.$inject = ['$routeProvider'];
     locations.$inject = ['$locationProvider'];
+    firewall.$inject = ['$rootScope', '$location', 'authorization'];
 
     function interceptors ($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
@@ -20,35 +21,20 @@
         $locationProvider.html5Mode(true);
     }
 
-    function routes ($routeProvider) {
-      $routeProvider.
-        when('/', {
-          templateUrl: '/js/act-one/home/home.html',
-          controller: 'HomeCtrl'
-        }).
-        when('/about', {
-          templateUrl: '/js/act-one/about/about.html',
-          controller: 'AboutCtrl'
-        }).
-        when('/auction', {
-          templateUrl: '/js/act-one/auction/auction.html',
-          controller: 'AuctionCtrl'
-        }).
-        when('/designers', {
-          templateUrl: '/js/act-one/fundraiser/designers.html',
-          controller: 'DesignersCtrl'
-        }).
-        when('/login', {
-          templateUrl: '/js/act-one/home/login.html',
-          controller: 'LoginCtrl'
-        }).
-        when('/tickets', {
-          templateUrl: '/js/act-one/tickets/tickets.html',
-          controller: 'TicketsCtrl'
-        }).
-        otherwise({
-          templateUrl: '/js/act-one/home/404.html'
-        });
+    function firewall ($rootScope, $location, authorization) {
+
+      $rootScope.$on('$routeChangeStart', function (event, next) {
+        var authStatus;
+        if (next.access !== undefined) {
+          authStatus = authorization.authorize(next.access);
+          if (authStatus.loginRequired) {
+              $location.path('/login');
+          } else if (authStatus.notAuthorised) {
+              $location.path('/403').replace();
+          }
+        }
+      });
+
     }
 
 })();

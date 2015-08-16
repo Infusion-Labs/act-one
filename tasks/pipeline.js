@@ -33,7 +33,7 @@ var jsFilesToInject = [
   'js/dependencies/**/*.js',
 
   // Main Angular module
-  'js/act-one/app-module.js',
+  'js/act-one/app.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
